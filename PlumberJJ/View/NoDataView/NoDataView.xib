@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jdN-ss-Htw" customClass="NoDataView" customModule="PlumberJJ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="424"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84v-DQ-Svp" customClass="CustomLabel" customModule="PlumberJJ" customModuleProvider="target">
+                    <rect key="frame" x="16" y="320" width="287" height="92"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="19J-ub-Rk3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You do not have any leads here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ8-3k-Pf6" customClass="CustomLabel" customModule="PlumberJJ" customModuleProvider="target">
+                    <rect key="frame" x="16" y="178" width="287" height="68"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="RX8-pd-ghm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
+                    <color key="textColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pull to Refresh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtd-w5-av5" customClass="CustomLabelGray" customModule="PlumberJJ" customModuleProvider="target">
+                    <rect key="frame" x="88.5" y="91" width="143" height="73"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="73" id="wXN-nd-lro"/>
+                        <constraint firstAttribute="width" constant="143" id="ywg-Yz-vI2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                    <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vtd-w5-av5" firstAttribute="centerX" secondItem="jdN-ss-Htw" secondAttribute="centerX" id="2IG-u9-Hpf"/>
+                <constraint firstAttribute="bottom" secondItem="84v-DQ-Svp" secondAttribute="bottom" constant="12" id="I6a-oK-9NV"/>
+                <constraint firstItem="iZ8-3k-Pf6" firstAttribute="leading" secondItem="jdN-ss-Htw" secondAttribute="leading" constant="16" id="JiY-GI-7w6"/>
+                <constraint firstItem="iZ8-3k-Pf6" firstAttribute="top" secondItem="vtd-w5-av5" secondAttribute="bottom" constant="14" id="KdR-at-6so"/>
+                <constraint firstItem="84v-DQ-Svp" firstAttribute="leading" secondItem="jdN-ss-Htw" secondAttribute="leading" constant="16" id="Qd5-bn-wtq"/>
+                <constraint firstItem="iZ8-3k-Pf6" firstAttribute="centerY" secondItem="jdN-ss-Htw" secondAttribute="centerY" id="UrN-Bu-PdT"/>
+                <constraint firstItem="iZ8-3k-Pf6" firstAttribute="centerX" secondItem="jdN-ss-Htw" secondAttribute="centerX" id="aN3-Qh-Ac3"/>
+                <constraint firstAttribute="trailing" secondItem="iZ8-3k-Pf6" secondAttribute="trailing" constant="17" id="tRD-zx-Xwr"/>
+                <constraint firstAttribute="trailing" secondItem="84v-DQ-Svp" secondAttribute="trailing" constant="17" id="xJc-7U-pQh"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="msgLbl" destination="iZ8-3k-Pf6" id="jpL-uy-wZ5"/>
+                <outlet property="refreshLbl" destination="vtd-w5-av5" id="2LJ-ZC-LUM"/>
+                <outlet property="tipsLbl" destination="84v-DQ-Svp" id="kio-19-BCv"/>
+            </connections>
+            <point key="canvasLocation" x="146" y="222"/>
+        </view>
+    </objects>
+</document>

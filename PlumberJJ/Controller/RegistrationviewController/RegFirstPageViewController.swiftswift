@@ -1,0 +1,452 @@
+//
+//  RegistrationFirstPageViewController.swift
+//  PlumberJJ
+//
+//  Created by Sakthivel's Mac Mini on 11/07/18.
+//  Copyright © 2018 Casperon Technologies. All rights reserved.
+//
+
+import UIKit
+
+class RegistrationFirstPageViewController: RootBaseViewController,UITextFieldDelegate,MICountryPickerDelegate,UITableViewDelegate,UITableViewDataSource,WWCalendarTimeSelectorProtocol {
+ 
+ // story board outlet
+    // imageview
+    @IBOutlet weak var appicon: UIImageView!
+ @IBOutlet weak var name_lbl: CustomLabel!
+    // lable
+    @IBOutlet weak var titleLbl: CustomLabelHeader!
+    @IBOutlet weak var namevalidation_lbl: CustomLabel!
+    @IBOutlet weak var email_id_lbl: CustomLabel!
+    @IBOutlet weak var email_valid_lbl: CustomLabel!
+    @IBOutlet weak var gender_lbl: CustomLabel!
+    @IBOutlet weak var gender_valid_lbl: CustomLabel!
+    @IBOutlet weak var dob_lbl: CustomLabel!
+    @IBOutlet weak var dob_valid_lbl: CustomLabel!
+    @IBOutlet weak var countrycode_lbl: CustomLabel!
+    @IBOutlet weak var countrycode_valid_lbl: CustomLabel!
+    @IBOutlet weak var mobilenumber_lbl: CustomLabel!
+    @IBOutlet weak var mobilenumbervalid_lbl: CustomLabel!
+    @IBOutlet weak var password_lbl: CustomLabel!
+    @IBOutlet weak var passwordvalid_lbl: CustomLabel!
+    @IBOutlet weak var trems_cond_lbl: CustomLabel!
+    @IBOutlet weak var confirm_password_lbl: CustomLabel!
+    @IBOutlet weak var confirmPass_valid_lbl: CustomLabel!
+    // stack view
+    @IBOutlet weak var stack_view: UIStackView!
+    
+    // TextFields
+    @IBOutlet weak var name_textfield: CustomTextField!
+    @IBOutlet weak var email_textField: CustomTextField!
+    @IBOutlet weak var dob_textfield: CustomTextField!
+    @IBOutlet weak var countrycode_textfield: CustomTextField!
+    @IBOutlet weak var mobilenumber_textfield: CustomTextField!
+    @IBOutlet weak var password_textfield: CustomTextField!
+    @IBOutlet weak var confirmpassword_textfield: CustomTextField!
+    
+    // Button
+    @IBOutlet weak var submit_btn: CustomButton!
+    @IBOutlet weak var gender_btn: UIButton!
+    
+    // scrollview
+    @IBOutlet weak var scr_view: UIScrollView!
+    // tableview
+    @IBOutlet weak var gender_tbl_view: UITableView!
+    @IBOutlet weak var gender_tbl_height: NSLayoutConstraint!
+    var gender_array = ["male"," female"]
+    var doboftasker : Date?
+    // set Calender View
+    let datePicker = UIDatePicker()
+    
+    var check_pass = ""
+    
+  
+    override func viewDidLoad() {
+        super.viewDidLoad()
+       titleLbl.text = appNameJJ
+      
+    // gender tbl_view
+    self.gender_tbl_view.delegate = self
+    self.gender_tbl_height.constant = 0
+    self.gender_tbl_view.layer.borderWidth = 1
+    self.gender_tbl_view.layer.borderColor = UIColor.darkGray.cgColor
+    self.gender_btn.layer.borderWidth = 1
+    self.gender_btn.layer.borderColor = UIColor.darkGray.cgColor
+    self.gender_btn.setTitleColor(UIColor.lightGray, for: .normal)
+    // set name to lable
+    self.name_lbl.text = theme.setLang("name")
+    self.namevalidation_lbl.text = theme.setLang("miss_name")
+    self.email_id_lbl.text = theme.setLang("e_mail")
+    self.email_valid_lbl.text = theme.setLang("miss_e_mail")
+    self.gender_lbl.text = theme.setLang("gender")
+    self.gender_valid_lbl.text = theme.setLang("miss_gender")
+    self.dob_lbl.text = theme.setLang("dob")
+    self.dob_valid_lbl.text = theme.setLang("miss_dob")
+    self.countrycode_lbl.text = theme.setLang("country_code")
+       self.countrycode_valid_lbl.text = theme.setLang("miss_countrycode")
+    self.mobilenumber_lbl.text = theme.setLang("mobile_no")
+    self.mobilenumbervalid_lbl.text = theme.setLang("miss_mobileno")
+    self.password_lbl.text = theme.setLang("password")
+    self.passwordvalid_lbl.text = theme.setLang("miss_password")
+    self.trems_cond_lbl.text = theme.setLang("trems_and_cond")
+    self.confirm_password_lbl.text = theme.setLang("confirm_password")
+    self.confirmPass_valid_lbl.text = theme.setLang("miss_confirmpass")
+    
+       // textfield place Holders
+    self.name_textfield.placeholder = theme.setLang("nameplace")
+    self.email_textField.placeholder = theme.setLang("e_mailplace")
+    self.dob_textfield.placeholder = theme.setLang("dob")
+    self.countrycode_textfield.placeholder = theme.setLang("country_code_small")
+    self.mobilenumber_textfield.placeholder = theme.setLang("mobile_nosmall")
+    self.password_textfield.placeholder = theme.setLang("passwordsmall")
+    self.confirmpassword_textfield.placeholder = theme.setLang("confirm_password")
+    self.add_paddingview(dob_textfield)
+    self.add_paddingview(countrycode_textfield)
+    self.password_padding(password_textfield, tag: 1)
+    self.password_padding(confirmpassword_textfield, tag: 2)
+
+   
+        
+    // delegate Calling
+    self.name_textfield.delegate = self
+    self.email_textField.delegate = self
+    self.dob_textfield.delegate = self
+    self.countrycode_textfield.delegate = self
+    self.mobilenumber_textfield.delegate = self
+    self.password_textfield.delegate = self
+    // Button Text
+    self.gender_btn.setTitle(theme.setLang("gender_select"), for: .normal)
+    self.submit_btn.setTitle(theme.setLang("continue"), for: .normal)
+    
+    // hide validation lbl
+    self.hidevalidationlbl()
+    }
+    func showCalendar() {
+        self.view.endEditing(true)
+        let singleDate: Date = Date()
+        let selector = UIStoryboard(name: "WWCalendarTimeSelector", bundle: nil).instantiateInitialViewController() as! WWCalendarTimeSelector
+        selector.delegate = self
+        selector.optionCurrentDate = singleDate
+      
+        selector.optionStyles.showDateMonth(true)
+        selector.optionStyles.showMonth(false)
+        selector.optionStyles.showYear(true)
+        selector.optionStyles.showTime(false)
+        present(selector, animated: true, completion: nil)
+
+    }
+    func WWCalendarTimeSelectorDone(_ selector: WWCalendarTimeSelector, dates: [Date]) {
+        
+    }
+    func WWCalendarTimeSelectorDone(_ selector: WWCalendarTimeSelector, date: Date) {
+         print("Selected \n\(date)\n---")
+        
+        let datestr: String = date.stringFromFormat("yyyy' 'MM' 'dd', 'h':'mma")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy' 'MM' 'dd', 'h':'mma"
+     
+            let convertdate = dateFormatter.date(from: datestr)!
+        
+        doboftasker = convertdate
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let dateString = dateFormatter.string(from: convertdate)
+        dob_textfield.text = dateString
+       
+    }
+    func Calculateage ()-> Int{
+        let now = Date()
+       
+        let calendar = Calendar.current
+        
+        let ageComponents = calendar.dateComponents([.year], from: doboftasker!, to: now)
+        let age = ageComponents.year!
+        return age
+    }
+    @objc func password_view (sender : UIButton)
+    {
+       if  sender.tag == 1 {
+        if self.password_textfield.isSecureTextEntry == true
+        {
+      self.password_textfield.isSecureTextEntry = false
+        }
+        else {
+      self.password_textfield.isSecureTextEntry = true
+        }
+        }
+       else{
+        if self.confirmpassword_textfield.isSecureTextEntry == true
+        {
+            self.confirmpassword_textfield.isSecureTextEntry = false
+        }
+        else {
+            self.confirmpassword_textfield.isSecureTextEntry = true
+        }
+        }
+        
+    }
+   
+
+    
+    func add_paddingview (_ text:UITextField) {
+        let paddingView = UIView(frame:CGRect(x: 0 , y: 0, width: text.frame.size.height - 25 , height: text.frame.size.height))
+        text.rightView=paddingView;
+        text.rightViewMode = UITextFieldViewMode.always
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.frame = paddingView.frame
+        image.image = UIImage(named: "arrowright")
+        paddingView.addSubview(image)
+        
+        
+    }
+    func password_padding(_ text:UITextField, tag : Int) {
+        let paddingView = UIView(frame:CGRect(x: 0, y: 0, width: text.frame.size.height-10, height: text.frame.size.height-10))
+        text.rightView=paddingView;
+        text.rightViewMode = UITextFieldViewMode.always
+        let btn_act = UIButton()
+        btn_act.tag = tag
+        btn_act.frame = paddingView.frame
+        btn_act.addTarget(self, action: #selector(password_view(sender:)), for: .touchUpInside)
+        btn_act.setImage(UIImage(named: "view_password"), for: .normal)
+        paddingView.addSubview(btn_act)
+    }
+    
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    
+    }
+// back bottom Action
+    @IBAction func didClickbackbtn(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+    // gender button Action
+    @IBAction func didClickgender_btn(_ sender: Any) {
+        self.view.endEditing(true)
+        if self.gender_tbl_height.constant != CGFloat(self.gender_array.count*30){
+        self.gender_tbl_view.isHidden = false
+        UIView.animate(withDuration: 0.5, animations: {
+              self.gender_tbl_height.constant = CGFloat(self.gender_array.count*40)
+              self.gender_tbl_view.layoutIfNeeded()
+              self.stack_view.layoutIfNeeded()
+        })
+        }
+    }
+    // submit button Action
+    @IBAction func didClickSubmitbtn(_ sender: UIButton) {
+      
+        
+        // resig All Keyboard
+        self.resignkeyboard()
+        
+        // hide all validation
+        self.hidevalidationlbl()
+        
+        // submit call
+      if name_textfield.text == "" {
+          self.namevalidation_lbl.isHidden = false
+        }
+       else if email_textField.text == "" {
+          self.email_valid_lbl.isHidden = false
+        }
+      else if gender_btn.titleLabel?.text == theme.setLang("gender_select") {
+      
+        self.gender_valid_lbl.isHidden = false
+      }
+        else if dob_textfield.text == "" {
+          self.dob_valid_lbl.isHidden = false
+        }
+       else if  Calculateage() <= 17
+       {
+        self.dob_valid_lbl.text = theme.setLang("dob_valid")
+        self.dob_valid_lbl.isHidden = false
+        }
+        
+        else if countrycode_textfield.text == "" {
+          self.countrycode_valid_lbl.isHidden = false
+        }
+        else if mobilenumber_textfield.text == "" {
+          self.mobilenumbervalid_lbl.isHidden = false
+        }
+        else if password_textfield.text == "" {
+          self.passwordvalid_lbl.isHidden = false
+        }
+      else if confirmpassword_textfield.text == "" {
+        self.confirmPass_valid_lbl.isHidden = false
+      }
+      else if confirmpassword_textfield.text != password_textfield.text {
+        self.theme.AlertView(Appname, Message: self.theme.setLang("confirm_pass"), ButtonTitle: "ok")
+      }
+      else {
+        let Param = ["username":"\(self.name_textfield.text!)",
+            "email":"\(self.email_textField.text!)","gender":"\(gender_btn.titleLabel?.text! ?? "")","dob":"\(self.dob_textfield.text!)","phone_code":"\(self.countrycode_textfield.text!)","phone_number":"\(self.mobilenumber_textfield.text!)","password":"\(self.password_textfield.text!)","password_confirmation":"\(self.confirmpassword_textfield.text!)"]
+        url_handler.makeCall(reg_form1 , param: Param as NSDictionary) {
+            (responseObject, error) -> () in
+          
+            if(error != nil)
+            {
+                self.view.makeToast(message:kErrorMsg, duration: 3, position: HRToastPositionDefault as AnyObject, title: appNameJJ)
+            }
+            else
+            {
+                if(responseObject != nil && (responseObject?.count)!>0)
+                {
+                    let responseObject = responseObject!
+                    let status=self.theme.CheckNullValue(responseObject.object(forKey: "status") as AnyObject)! as NSString
+                    if(status == "1")
+                    {
+                        
+                    }
+                    else
+                    {
+                       let response = self.theme.CheckNullValue(responseObject.object(forKey:"response"))
+                        self.theme.AlertView(appNameJJ, Message: response!, ButtonTitle: kOk)
+                    }
+                }
+                else
+                {
+                    self.view.makeToast(message:kErrorMsg, duration: 3, position: HRToastPositionDefault as AnyObject, title: appNameJJ)
+                }
+            }
+            
+        }
+        }
+       
+        
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gender_array.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = gender_array[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.gender_btn.setTitleColor(UIColor.black, for: .normal)
+        self.gender_btn.setTitle(theme.CheckNullValue(gender_array[indexPath.row])!, for: .normal)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.gender_tbl_height.constant = 0
+            self.gender_tbl_view.layoutIfNeeded()
+             self.stack_view.layoutIfNeeded()
+        })
+    }
+    
+   
+    func hidevalidationlbl () {
+        
+        self.namevalidation_lbl.isHidden = true
+        self.email_valid_lbl.isHidden = true
+        self.gender_valid_lbl.isHidden = true
+        self.dob_valid_lbl.isHidden = true
+        self.countrycode_valid_lbl.isHidden = true
+        self.mobilenumbervalid_lbl.isHidden = true
+        self.passwordvalid_lbl.isHidden = true
+        self.confirmPass_valid_lbl.isHidden = true
+       
+    }
+    func resignkeyboard (){
+        
+       self.name_textfield.resignFirstResponder()
+       self.email_textField.resignFirstResponder()
+       self.dob_textfield.resignFirstResponder()
+       self.countrycode_textfield.resignFirstResponder()
+       self.mobilenumber_textfield.resignFirstResponder()
+       self.password_textfield.resignFirstResponder()
+        
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+//      textField.resignFirstResponder()
+        if textField ==  countrycode_textfield
+        {
+         self.countrycode_textfield.resignFirstResponder()
+           let  country = MICountryPicker()
+           country.delegate = self
+            country.showCallingCodes = true
+            self.navigationController?.present(country, animated: true, completion: nil)
+        }
+        if textField == dob_textfield {
+             textField.resignFirstResponder()
+           
+        self.showCalendar()
+        }
+        
+    }
+   
+    func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String, dialCode: String, countryFlagImage: UIImage) {
+        print("selected country\(dialCode)")
+        self.countrycode_textfield.text = dialCode
+        picker.dismiss(animated: true, completion: nil)
+    }
+  
+    // Delegate function contry code picker
+    func countryPicker(_ picker: MICountryPicker, didSelectCountryWithName name: String, code: String) {
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == name_textfield {
+            self.email_textField.becomeFirstResponder()
+        }
+//        else if textField == email_textField {
+////            self.dob_textfield.becomeFirstResponder()
+//        }
+//        else if textField == dob_textfield {
+//            self.countrycode_textfield.becomeFirstResponder()
+//        }
+        else if textField == countrycode_textfield {
+            self.mobilenumber_textfield.becomeFirstResponder()
+        }
+        else if textField == mobilenumber_textfield {
+            self.password_textfield.becomeFirstResponder()
+        }
+        else if textField == password_textfield {
+            self.password_textfield.becomeFirstResponder()
+        }
+        else if textField == password_textfield {
+            self.confirmpassword_textfield.becomeFirstResponder()
+        }
+        return true
+    }
+   
+    
+    
+
+}
+
+
+
+@IBDesignable
+class CustomRoundButton : UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+       
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+    
+    @IBInspectable var backgroundcolor:UIColor = PlumberThemeColor {
+        didSet {
+            self.backgroundColor = backgroundColor
+        }
+    }
+   
+    
+    @IBInspectable var cornerRadius : CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+            self.layer.masksToBounds = true
+          
+        }
+    }
+}

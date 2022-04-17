@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileDetailTableIdentifier" rowHeight="58" id="KGk-i7-Jjw" customClass="ProfileDetailTableViewCell" customModule="PlumberJJ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pp4-jc-ebc" customClass="CustomLabel" customModule="PlumberJJ" customModuleProvider="target">
+                        <rect key="frame" x="8" y="10" width="304" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="304" id="0lZ-H5-kBb"/>
+                            <constraint firstAttribute="height" constant="21" id="CwU-8N-izX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi am a plumber" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Jj-w0-L3K" customClass="CustomLabelGray" customModule="PlumberJJ" customModuleProvider="target">
+                        <rect key="frame" x="8" y="31" width="304" height="21.5"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pp4-jc-ebc" secondAttribute="trailing" constant="8" id="IXl-Uh-jbI"/>
+                    <constraint firstItem="pp4-jc-ebc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="N96-fx-8NV"/>
+                    <constraint firstAttribute="bottom" secondItem="1Jj-w0-L3K" secondAttribute="bottom" constant="5" id="PwS-Yo-kaN"/>
+                    <constraint firstItem="1Jj-w0-L3K" firstAttribute="top" secondItem="pp4-jc-ebc" secondAttribute="bottom" id="SI1-lG-9AT"/>
+                    <constraint firstAttribute="trailing" secondItem="1Jj-w0-L3K" secondAttribute="trailing" constant="8" id="amF-Zh-MfE"/>
+                    <constraint firstItem="1Jj-w0-L3K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bau-lH-G7Y"/>
+                    <constraint firstItem="pp4-jc-ebc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="yEz-68-Apg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descLbl" destination="1Jj-w0-L3K" id="Y1R-rh-YI0"/>
+                <outlet property="titleLbl" destination="pp4-jc-ebc" id="sav-8S-eAP"/>
+            </connections>
+            <point key="canvasLocation" x="249" y="245"/>
+        </tableViewCell>
+    </objects>
+</document>

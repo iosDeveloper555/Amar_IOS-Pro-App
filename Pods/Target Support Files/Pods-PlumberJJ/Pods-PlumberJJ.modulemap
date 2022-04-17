@@ -1,0 +1,6 @@
+framework module Pods_PlumberJJ {
+  umbrella header "Pods-PlumberJJ-umbrella.h"
+
+  export *
+  module * { export * }
+}

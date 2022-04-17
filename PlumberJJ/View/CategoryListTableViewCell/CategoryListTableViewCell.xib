@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryListTableViewCell" id="KGk-i7-Jjw" customClass="CategoryListTableViewCell" customModule="PlumberJJ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kP-DC-yds" customClass="CustomLabel" customModule="PlumberJJ" customModuleProvider="target">
+                        <rect key="frame" x="13" y="14" width="218" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="218" id="ePl-kn-haD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhg-OM-Mkw">
+                        <rect key="frame" x="287" y="11" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="hPt-AA-Wbr"/>
+                            <constraint firstAttribute="height" constant="20" id="ywL-ze-PU7"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="DeleteImg"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5D-3o-UO9">
+                        <rect key="frame" x="246" y="14" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="4Gg-eB-Mig"/>
+                            <constraint firstAttribute="height" constant="20" id="ioe-xQ-APo"/>
+                        </constraints>
+                        <state key="normal" image="EditImg"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8kP-DC-yds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="9bT-zW-vMz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8kP-DC-yds" secondAttribute="bottom" constant="3" id="AUk-VQ-afz"/>
+                    <constraint firstItem="hhg-OM-Mkw" firstAttribute="leading" secondItem="C5D-3o-UO9" secondAttribute="trailing" constant="21" id="Hj2-PQ-bgm"/>
+                    <constraint firstItem="8kP-DC-yds" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="XIi-nE-mmf"/>
+                    <constraint firstItem="C5D-3o-UO9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="hq0-rd-FEm"/>
+                    <constraint firstAttribute="trailing" secondItem="hhg-OM-Mkw" secondAttribute="trailing" constant="13" id="oNl-cp-Eef"/>
+                    <constraint firstItem="hhg-OM-Mkw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="vC2-O5-ueT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categotyName_Lbl" destination="8kP-DC-yds" id="Gl6-gW-OXl"/>
+                <outlet property="delete_Btn" destination="hhg-OM-Mkw" id="0iN-UH-3n0"/>
+                <outlet property="edit_Btn" destination="C5D-3o-UO9" id="cXM-KS-Bai"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="DeleteImg" width="32" height="32"/>
+        <image name="EditImg" width="25" height="25"/>
+    </resources>
+</document>

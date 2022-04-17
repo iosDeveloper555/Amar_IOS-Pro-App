@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>902563976858-e62pvp58ehqnfo058v5rb1784osa56nb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.902563976858-e62pvp58ehqnfo058v5rb1784osa56nb</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>902563976858-n6rirdcaj39if0e01qvt8eame4jmlhc2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBy_qsFdWFB915HywbMpt5QVn0cNlpo0xE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>902563976858</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.viahive.pro.app</string>
+	<key>PROJECT_ID</key>
+	<string>viahive-client</string>
+	<key>STORAGE_BUCKET</key>
+	<string>viahive-client.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:902563976858:ios:82caf4d956970b809df123</string>
+</dict>
+</plist>

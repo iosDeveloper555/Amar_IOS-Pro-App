@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionDetailTableViewCell" rowHeight="58" id="Xbr-tj-Tzw" customClass="TransactionDetailTableViewCell" customModule="PlumberJJ" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xbr-tj-Tzw" id="dgg-Zf-rRe">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hi am a plumber" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9R-0I-NnW">
+                        <rect key="frame" x="160" y="18" width="152" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUw-Qa-aD1">
+                        <rect key="frame" x="16" y="21" width="124" height="21"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Fof-kI-8jn"/>
+                            <constraint firstAttribute="width" constant="124" id="kUO-EU-H4r"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.2156862745" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oUw-Qa-aD1" firstAttribute="leading" secondItem="dgg-Zf-rRe" secondAttribute="leadingMargin" id="5kO-A6-NT0"/>
+                    <constraint firstItem="oUw-Qa-aD1" firstAttribute="top" secondItem="dgg-Zf-rRe" secondAttribute="topMargin" constant="10" id="XnX-i0-iEd"/>
+                    <constraint firstItem="e9R-0I-NnW" firstAttribute="trailing" secondItem="dgg-Zf-rRe" secondAttribute="trailingMargin" id="YjU-hh-9ma"/>
+                    <constraint firstItem="e9R-0I-NnW" firstAttribute="leading" secondItem="oUw-Qa-aD1" secondAttribute="trailing" constant="28" id="mL2-aY-KmG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="e9R-0I-NnW" secondAttribute="bottom" constant="10" id="qdo-m4-pnZ"/>
+                    <constraint firstItem="e9R-0I-NnW" firstAttribute="top" secondItem="dgg-Zf-rRe" secondAttribute="topMargin" constant="10" id="xdN-kD-J3y"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblDescL" destination="e9R-0I-NnW" id="MvM-HS-I1d"/>
+                <outlet property="lblTitle" destination="oUw-Qa-aD1" id="TNi-wO-xCg"/>
+            </connections>
+            <point key="canvasLocation" x="376" y="469"/>
+        </tableViewCell>
+    </objects>
+</document>
